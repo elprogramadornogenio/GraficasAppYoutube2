@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+            <h2>Login</h2>
+            <mat-error *ngIf="!ValidarLogin">El email y password no corresponden</mat-error>
+            <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+                <mat-error>El email no es valido</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+                <mat-error>El password no es valido</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Ingresar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

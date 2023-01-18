@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+    <div fxFlex="50">
+        <mat-list>
+            <mat-list-item>
+                <h1>Gráfica de Línea</h1>
+            </mat-list-item>
+            <mat-list-item>Los datos son incertados por arreglos de datos de tipo número</mat-list-item>
+            <mat-list-item>1, 2, 3, 4, 5, 6</mat-list-item>
+            <mat-list-item>Los labels son incertados por arreglos de datos de tipo string</mat-list-item>
+            <mat-list-item>primer item, segundo item, tercer item, cuarto item, quinto item</mat-list-item>
+            <mat-list-item>Los datos de label son incertados por arreglos de datos de tipo string</mat-list-item>
+            <mat-list-item>primer item, segundo item, tercer item, cuarto item, quinto item</mat-list-item>
+        </mat-list>
+    </div>
+    <div fxFlex="50">
+        <div *ngIf="cargando; else cargoInformacion" class="center">
+            <mat-spinner color="accent"></mat-spinner>
+        </div>
+
+        <ng-template #cargoInformacion>
+            <canvas baseChart [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
+                [legend]="lineChartLegend">
+            </canvas>
+        </ng-template>
+
+    </div>
+</div>
